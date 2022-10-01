@@ -15,7 +15,7 @@ public class Login extends HttpServlet {
 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Server started and Serving at port : ").append(request.getContextPath());
 		doPost(request, response);
 	}
 
@@ -25,6 +25,11 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 		
 		if(uname.equals("admin") && password.equals("admin123")) {
+			HttpSession session = request.getSession();
+			session.setAttribute("uname", uname);
+			response.sendRedirect("welcome.jsp");
+		}
+		else if(uname.equals("swarnadeep") && password.equals("swarna")) {
 			HttpSession session = request.getSession();
 			session.setAttribute("uname", uname);
 			response.sendRedirect("welcome.jsp");
