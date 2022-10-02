@@ -28,12 +28,8 @@ public class Login extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("uname", uname);
 			response.sendRedirect("welcome.jsp");
-		}
-		else if(uname.equals("swarnadeep") && password.equals("swarna")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("uname", uname);
-			response.sendRedirect("welcome.jsp");
-		}
+		
+		
 		else {
 			response.sendRedirect("error.jsp");
 		}
